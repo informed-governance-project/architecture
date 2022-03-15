@@ -3,8 +3,8 @@
 
 ### Main components
 
-- a portal;
-- [MONARC](monarc.md)
+- a [portal](portal.md);
+- a [MONARC](monarc.md) instance;
 - incident notification system (MISP).
 
 
