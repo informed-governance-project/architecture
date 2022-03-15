@@ -12,6 +12,9 @@ The main components are the following:
 ![SERIMA architecture](architecture-serima.png)
 
 
+The portal provides a way to manage users (standard users directory of simple
+custom one).
+
 
 Global Features to cover
 
@@ -39,13 +42,14 @@ The SERIMA platform should offer following functionalities to its users:
 
 Summary table :
 
-|    Features                |  Dev             | 
-|----------------------------|------------------|
-| Security objectives        | MONARC           |
-| Dependencies               | MONARC           |
-| Risk Management            | MONARC           |
-| Users management           | Portal / MONARC  |
-| Platform configuration     | Portal           |
-| Incident notification      |                  |
+|    Features                |  Component           | 
+|----------------------------|----------------------|
+| Security objectives        | MONARC               |
+| Dependencies               | MONARC               |
+| Risk Management            | MONARC               |
+| Users management           | Portal / MONARC      |
+| Platform configuration     | Portal               |
+| User management *          | Portal               |
+| Incident notification      | MISP (not 100% sure) |
 
-
+* somehow already possible with MONARC
