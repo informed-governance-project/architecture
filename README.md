@@ -4,7 +4,7 @@
 
 The main components are the following:
 
-- a [portal](portal.md);
+- a [portal](features/portal.md);
 - a [MONARC](monarc.md) instance;
 - incident notification system (MISP).
 
@@ -54,8 +54,8 @@ The SERIMA platform should offer following functionalities to its users:
 | [Monitoring for users](features/monitoring-users.md)               | MONARC               |               |                  |                  |
 | [Monitoring for regulators](features/monitoring-regulators.md)     | MONARC               |               |                  |                  |
 | [Regulator](features/regulator.md)                                 | MONARC               |               |                  |                  |
-| [Users management](features/.md)                                   | Portal / MONARC      |               |                  |                  |
-| [Platform configuration](features/user-management.md)              | Portal               |               |                  |                  |
+| [Users management](features/users-management.md)                   | Portal / MONARC      |               |                  |                  |
+| [Platform configuration](features/platform-configuration.md)       | Portal               |               |                  |                  |
 | Incident notification                                              | MISP (not 100% sure) |               |                  |      NA          |
 
 * somehow already possible with MONARC
