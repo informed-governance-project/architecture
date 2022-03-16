@@ -16,7 +16,7 @@ The portal provides a way to manage users (standard users directory of simple
 custom one).
 
 
-Global Features to cover
+## Global Features to cover
 
 The SERIMA platform should offer following functionalities to its users:
 
@@ -40,16 +40,19 @@ The SERIMA platform should offer following functionalities to its users:
  - **Platform configuration**: each regulator/ competent authority can configure his platform (e.g. branding; import sectoral library; configure users; export data; etc.).
 
 
-Summary table :
+### Summary table
 
 |    Features                |  Component           | 
 |----------------------------|----------------------|
 | Security objectives        | MONARC               |
 | Dependencies               | MONARC               |
 | Risk Management            | MONARC               |
+| Data submission            | MONARC               |
+| Monitoring for users       | MONARC               |
+| Monitoring                 | MONARC               |
+| Regulator                  | MONARC               |
 | Users management           | Portal / MONARC      |
 | Platform configuration     | Portal               |
-| User management *          | Portal               |
 | Incident notification      | MISP (not 100% sure) |
 
 * somehow already possible with MONARC
