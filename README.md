@@ -35,24 +35,27 @@ The SERIMA platform should offer following functionalities to its users:
 - **Incident notification**: each user has the possibility to report incidents to
   his regulator / competent authority.
 - **Regulator** / competent authority functionalities:
- - Submitted data management: each regulator/ competent authority can manage and process data submitted by his users.
- - **User management**: each regulator/ competent authority should have the possibility to manage his users.
- - **Platform configuration**: each regulator/ competent authority can configure his platform (e.g. branding; import sectoral library; configure users; export data; etc.).
+ - Submitted data management: each regulator/ competent authority can manage and
+   process data submitted by his users.
+ - **User management**: each regulator/ competent authority should have the
+   possibility to manage his users.
+ - **Platform configuration**: each regulator/ competent authority can configure
+   his platform (e.g. branding; import sectoral library; configure users; export data; etc.).
 
 
 ### Summary table
 
-|    Features                |  Component           | 
-|----------------------------|----------------------|
-| Security objectives        | MONARC               |
-| Dependencies               | MONARC               |
-| Risk Management            | MONARC               |
-| Data submission            | MONARC               |
-| Monitoring for users       | MONARC               |
-| Monitoring                 | MONARC               |
-| Regulator                  | MONARC               |
-| Users management           | Portal / MONARC      |
-| Platform configuration     | Portal               |
-| Incident notification      | MISP (not 100% sure) |
+|    Features                                                        |  Component           | Already exist | Changes required | Cost estimation  |
+|--------------------------------------------------------------------|----------------------|---------------|------------------|------------------|
+| [Security objectives](features/objective.md)                       | MONARC               |               |                  |                  |
+| [Dependencies](features/dependencies.md)                           | MONARC               |               |                  |                  |
+| [Risk Management](features/risk.md)                                | MONARC               |               |                  |                  |
+| [Data submission](features/data.md)                                | MONARC               |               |                  |                  |
+| [Monitoring for users](features/monitoring-users.md)               | MONARC               |               |                  |                  |
+| [Monitoring for regulators](features/monitoring-regulators.md)     | MONARC               |               |                  |                  |
+| [Regulator](features/regulator.md)                                 | MONARC               |               |                  |                  |
+| [Users management](features/.md)                                   | Portal / MONARC      |               |                  |                  |
+| [Platform configuration](features/user-management.md)              | Portal               |               |                  |                  |
+| Incident notification                                              | MISP (not 100% sure) |               |                  |      NA          |
 
 * somehow already possible with MONARC
