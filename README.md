@@ -47,14 +47,14 @@ The SERIMA platform should offer following functionalities to its users:
 
 |    Features                                                        |  Component           | Already exist         | Changes required | Cost estimation  |
 |--------------------------------------------------------------------|----------------------|-----------------------|------------------|------------------|
-| [Security objectives](features/objective.md)                       | MONARC               |                       |                  |                  |
-| [Dependencies](features/dependencies.md)                           | MONARC               |                       |                  |                  |
-| [Risk Management](features/risk.md)                                | MONARC               |                       |                  |                  |
-| [Data submission](features/data.md)                                | MONARC               |                       |                  |                  |
+| [Security objectives](features/objective.md)                       | MONARC               | Referentials          | content          |                  |
+| [Dependencies](features/dependencies.md)                           | MONARC               | New                   | creation         |                  |
+| [Risk Management](features/risk.md)                                | MONARC               | YES (evaluation)      |                  |                  |
+| [Data submission](features/data.md)                                | MONARC               | YES (import/Export)   |                  |                  |
 | [Monitoring for users](features/monitoring-users.md)               | MONARC               | partially (dashboard) |                  |                  |
 | [Monitoring for regulators](features/monitoring-regulators.md)     | MONARC               | partially (dashboard) |                  |                  |
 | [Regulator](features/regulator.md)                                 | MONARC               |                       |                  |                  |
-| [Users management](features/users-management.md)                   | Portal / MONARC      |                       |                  |                  |
+| [Users management](features/users-management.md)                   | Portal / MONARC      | Partially MONARC      | single sign on   |                  |
 | [Platform configuration](features/platform-configuration.md)       | Portal               |                       |                  |                  |
 | Incident notification                                              | MISP (not 100% sure) |                       |                  |      NA          |
 
