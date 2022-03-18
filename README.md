@@ -22,6 +22,8 @@ The SERIMA platform should offer following functionalities to its users:
 
 - **Security objectives**: the user assesses the performances of his organization
   for the listed security objectives.
+- **Sector**: Sector is needed for stats as some companies might be participant in multiple sectors.
+  Sector selection could be important for later on for specific assets.
 - **Dependencies**: the user lists the operators his organization depends on.
 - **Risk Management**: the user assesses the risks his organization faces.
 - **Data submission**: the user can submit data (e.g. security objectives;
@@ -48,6 +50,7 @@ The SERIMA platform should offer following functionalities to its users:
 |    Features                                                        |  Component           | Already exist         | Changes required | Cost estimation  |
 |--------------------------------------------------------------------|----------------------|-----------------------|------------------|------------------|
 | [Security objectives](features/objective.md)                       | MONARC               | YES (Referentials)    | content          |                  |
+| [Sector](features/sector.md)                                       | MONARC               | NO                    | DropDown List    |                  |
 | [Dependencies](features/dependencies.md)                           | MONARC               | NO                    | creation         |                  |
 | [Risk Management](features/risk.md)                                | MONARC               | YES (evaluation)      | content          |                  |
 | [Data submission](features/data.md)                                | MONARC               | YES (import/Export)   | ---              |                  |
