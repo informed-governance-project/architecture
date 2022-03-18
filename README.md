@@ -56,7 +56,7 @@ The SERIMA platform should offer following functionalities to its users:
 | [Data submission](features/data.md)                                | MONARC               | YES (import/Export)   | ---              |                  |
 | [Monitoring for users](features/monitoring-users.md)               | MONARC               | partially (dashboard) |                  |                  |
 | [Monitoring for regulators](features/monitoring-regulators.md)     | MONARC               | partially (dashboard) |                  |                  |
-| [Regulator](features/regulator.md)                                 | MONARC               | temp by MONARC (BO/FO)|                  |                  |
+| [Regulator](features/regulator.md)                                 | MONARC               | temp by MONARC (BO/FO)| TimeStamp ReadOnly trigger |        |
 | [Users management](features/users-management.md)                   | Portal / MONARC      | Partially MONARC      | single sign on   |                  |
 | [Platform configuration](features/platform-configuration.md)       | Portal               | NO                    | Logo & colour    |                  |
 | Incident notification                                              | MISP (not 100% sure) | temp. by existing     |                  |      NA          |
