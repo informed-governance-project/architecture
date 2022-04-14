@@ -1,4 +1,4 @@
-# SERIMA Architecture
+# Architecture
 
 ## Overview
 
@@ -10,7 +10,7 @@ The main components are the following:
 - incident notification system, threat sharing (MISP ?).
 
 
-![SERIMA architecture](architecture-serima.png)
+![SERIMA architecture](architecture.png)
 
 
 The portal provides a way to manage users (standard users directory of simple
@@ -19,7 +19,7 @@ custom one).
 
 ## Global Features to cover
 
-The SERIMA platform should offer following functionalities to its users:
+The platform should offer following functionalities to its users:
 
 - **Security objectives**: the user assesses the performances of his organization
   for the listed security objectives.
