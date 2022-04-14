@@ -46,7 +46,7 @@ The SERIMA platform should offer following functionalities to its users:
    his platform (e.g. branding; import sectoral library; configure users; export data; etc.).
 
 
-Developments directly impacting MONARC:
+### Developments directly impacting MONARC
 
 https://github.com/orgs/monarc-project/projects/3
 
