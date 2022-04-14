@@ -4,9 +4,10 @@
 
 The main components are the following:
 
-- a [portal](features/portal.md);
+- a [portal](features/portal.md) with Two-factor authentication and
+  acting as a reverse proxy;
 - a [MONARC](monarc.md) instance;
-- incident notification system (MISP).
+- incident notification system, threat sharing (MISP ?).
 
 
 ![SERIMA architecture](architecture-serima.png)
@@ -43,6 +44,12 @@ The SERIMA platform should offer following functionalities to its users:
    possibility to manage his users.
 - **Platform configuration**: each regulator/ competent authority can configure
    his platform (e.g. branding; import sectoral library; configure users; export data; etc.).
+
+
+Developments directly impacting MONARC:
+
+https://github.com/orgs/monarc-project/projects/3
+
 
 
 ### Summary table
