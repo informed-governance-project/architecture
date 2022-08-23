@@ -66,6 +66,6 @@ https://github.com/orgs/monarc-project/projects/3
 | [Regulator](features/regulator.md)                                 | MONARC               | temp by MONARC (BO/FO)| TimeStamp ReadOnly trigger |        |
 | [Users management](features/users-management.md)                   | Portal / MONARC      | Partially MONARC      | single sign on   |                  |
 | [Platform configuration](features/platform-configuration.md)       | Portal               | NO                    | Logo & colour    |                  |
-| Incident notification                                              | MISP (not 100% sure) | temp. by existing     |                  |      NA          |
+| [Incident notification](features/incident-notification.md)         | NISINP               | NO (it seems)         |                  |                  |
 
 
