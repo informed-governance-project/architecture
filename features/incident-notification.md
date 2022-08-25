@@ -9,3 +9,7 @@ https://ec.europa.eu/information_society/newsroom/image/document/2018-30/referen
 https://www.enisa.europa.eu/topics/nis-directive/minimum-security-measures-for-operators-of-essentials-services
 
 https://nis-incident.be/en/
+
+
+https://www.ssi.gouv.fr/entreprise/reglementation/directive-nis/faq-operateurs-de-services-essentiels-ose/
+https://www.ssi.gouv.fr/uploads/2018/05/formulaire-declaration-sie-nis.pdf
