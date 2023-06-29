@@ -5,17 +5,15 @@
 The main components are the following:
 
 - a [portal](features/portal.md) with Two-factor authentication and
-  acting as a reverse proxy. [Source code](https://github.com/informed-governance-project/portal);
-- a [MONARC](monarc.md) instance;
-- the governance platform. [Source code](https://github.com/informed-governance-project/governance-platform);
-- incident notification system. [Source code](https://github.com/informed-governance-project/NISINP)
+  acting as a reverse proxy ([Source code](https://github.com/informed-governance-project/portal));
+- the governance platform ([Source code](https://github.com/informed-governance-project/governance-platform));
+- incident notification system ([Source code](https://github.com/informed-governance-project/NISINP));
+- a [MONARC](monarc.md) instance.
 
 
 ![SERIMA architecture](architecture.png)
 
-
-The portal provides a way to manage users (standard users directory of simple
-custom one).
+The portal provides a way to manage users via an API.
 
 
 ## Global Features to cover
