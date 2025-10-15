@@ -1,70 +1,101 @@
 # Architecture
 
-## Overview
+The platform is built around a layered architecture that guides how information moves from users to the system and back. When someone accesses the platform through their browser, their requests first pass through a secure web gateway that manages entry and ensures stable, encrypted communication. These requests are then routed to the application core, where the main governance, incident management, reporting, and security objective processes are executed. The system separates immediate user interactions from heavier operations: while simple actions are handled instantly by the application, more complex or scheduled tasks—such as generating reports or sending notifications—are processed in the background by a dedicated task engine. All data is stored securely in a central database, with fast caching and messaging components ensuring the platform remains responsive even under heavy use. The application then uses external email services to deliver notifications. This architecture makes the platform reliable, scalable, and efficient, ensuring that users experience smooth interactions while the system processes complex operations behind the scenes.
 
-The main components are the following:
+## Current architecture
+``` mermaid
+---
+config:
+  layout: elk
+---
+flowchart TB
+ subgraph subGraph0["Client Zone"]
+        Browser["Web Browser"]
+        PDF["PDF NI & SO"]
+  end
+ subgraph subGraph1["Web Server"]
+        WebServer["NGINX/Apache"]
+  end
+ subgraph subGraph2["Proxy Zone"]
+        ServerProxy["Gunicorn"]
+        ServerStatic["Whitenoise"]
+  end
+ subgraph subGraph3["BackEnd Zone"]
+        WSGI["WSGI Entry Point"]
+        CoreSettings["Settings & URLs"]
+        GovernanceApp["Governance Module"]
+        IncidentsApp["Incidents Module"]
+        ReportingApp["Reporting Module"]
+        SOApp["Security Objectives Module"]
+  end
+ subgraph subGraph4["Async Tasks Zone"]
+        CeleryWorker["Celery Worker"]
+        CeleryBeat["Celery Beat Scheduler"]
+        GPTasks["Governance Tasks"]
+        IncTasks["Incidents Tasks"]
+        RepTasks["Reporting Tasks"]
+  end
+ subgraph subGraph5["Theme Zone"]
+        Static["Static Assets"]
+        Templates["HTML Templates"]
+  end
+ subgraph subGraph6["Data Zone"]
+        Database["Database"]
+        Broker["Redis Broker"]
+        PDFModule["PDF Generation Module"]
+  end
+ subgraph subGraph7["External Zone"]
+        SMTP["Email SMTP Server"]
+  end
+    Browser -- HTTP(S) --> WebServer
+    WebServer -- execute --> ServerProxy
+    CoreSettings -- serves --> Templates
+    ServerProxy -- proxies HTTP --> WSGI
+    ServerStatic -- loads --> Static
+    WSGI -- loads --> CoreSettings
+    CoreSettings -- initializes --> GovernanceApp & IncidentsApp & ReportingApp & SOApp
+    GovernanceApp -- SQL --> Database
+    IncidentsApp -- SQL --> Database
+    ReportingApp -- SQL --> Database
+    SOApp -- SQL --> Database
+    CeleryBeat -- schedule AMQP --> Broker
+    CeleryWorker -- consume AMQP --> Broker
+    CeleryWorker -- execute --> GPTasks & IncTasks & RepTasks
+    IncTasks -- sends --> SMTP
+    RepTasks -- generate --> PDFModule
+    IncidentsApp -- sends --> SMTP
+     Browser:::ui
+     PDF:::ui
+     WebServer:::web
+     ServerProxy:::backend
+     ServerStatic:::backend
+     WSGI:::backend
+     CoreSettings:::backend
+     GovernanceApp:::backend
+     IncidentsApp:::backend
+     ReportingApp:::backend
+     SOApp:::backend
+     CeleryWorker:::worker
+     CeleryBeat:::worker
+     GPTasks:::worker
+     IncTasks:::worker
+     RepTasks:::worker
+     Static:::ui
+     Templates:::ui
+     Database:::infra
+     Broker:::infra
+     PDFModule:::infra
+     SMTP:::external
+    classDef web fill:#F7C0C0,stroke:#333,stroke-width:1px
+    classDef ui fill:#bbdefb,stroke:#333,stroke-width:1px
+    classDef backend fill:#c8e6c9,stroke:#333,stroke-width:1px
+    classDef worker fill:#ffe0b2,stroke:#333,stroke-width:1px
+    classDef infra fill:#e0e0e0,stroke:#333,stroke-width:1px
+    classDef external fill:#e1bee7,stroke:#333,stroke-width:1px
 
-- a [portal](features/portal.md) with Two-factor authentication and
-  acting as a reverse proxy ([Source code](https://github.com/informed-governance-project/portal));
-- the governance platform ([Source code](https://github.com/informed-governance-project/governance-platform));
-- incident notification system ([Source code](https://github.com/informed-governance-project/NISINP));
-- a [MONARC](monarc.md) instance.
-
-
-![SERIMA architecture](architecture.png)
-
-The portal provides a way to manage users via an API.
-
-
-## Global Features to cover
-
-The platform should offer following functionalities to its users:
-
-- **Security objectives**: the user assesses the performances of his organization
-  for the listed security objectives.
-- **Sector**: Sector is needed for stats as some companies might be participant in multiple sectors.
-  Sector selection could be important for later on for specific assets.
-- **Dependencies**: the user lists the operators his organization depends on.
-- **Risk Management**: the user assesses the risks his organization faces.
-- **Data submission**: the user can submit data (e.g. security objectives;
-  dependencies; risk assessment) to his regulator / competent authority
-- **Monitoring for users**: the user has the possibility to display on graphics,
-  data he has captured.
-- **Monitoring** for regulators/competent authority: the regulator/competent authority
-  has the possibility to display on graphics:
-  - Data submitted by each of his users.
-  - Data submitted by a group of his users (e.g. health sector statistics).
-- **Incident notification**: each user has the possibility to report incidents to
-  his regulator / competent authority.
-- **Regulator** / competent authority functionalities:
-  - Submitted data management: each regulator/ competent authority can manage and
-   process data submitted by his users.
-- **User management**: each regulator/ competent authority should have the
-   possibility to manage his users.
-- **Platform configuration**: each regulator/ competent authority can configure
-   his platform (e.g. branding; import sectoral library; configure users; export data; etc.).
-
-
-### Developments directly impacting MONARC
-
-https://github.com/orgs/monarc-project/projects/3
+```
 
 
 
-### Summary table
-
-|    Features                                                        |  Component           | Already exist         | Changes required | Cost estimation  |
-|--------------------------------------------------------------------|----------------------|-----------------------|------------------|------------------|
-| [Security objectives](features/objective.md)                       | MONARC               | YES (Referentials)    | content          |                  |
-| [Sector](features/sector.md)                                       | MONARC               | NO                    | DropDown List    |                  |
-| [Dependencies](features/dependencies.md)                           | MONARC               | NO                    | creation         |                  |
-| [Risk Management](features/risk.md)                                | MONARC               | YES (evaluation)      | content          |                  |
-| [Data submission](features/data.md)                                | MONARC               | YES (import/Export)   | ---              |                  |
-| [Monitoring for users](features/monitoring-users.md)               | MONARC               | partially (dashboard) |                  |                  |
-| [Monitoring for regulators](features/monitoring-regulators.md)     | MONARC               | partially (dashboard) |                  |                  |
-| [Regulator](features/regulator.md)                                 | MONARC               | temp by MONARC (BO/FO)| TimeStamp ReadOnly trigger |        |
-| [Users management](features/users-management.md)                   | Portal / MONARC      | Partially MONARC      | single sign on   |                  |
-| [Platform configuration](features/platform-configuration.md)       | Portal               | NO                    | Logo & colour    |                  |
-| [Incident notification](features/incident-notification.md)         | NISINP               | NO (it seems)         |                  |                  |
 
 
